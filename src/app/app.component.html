@@ -1,0 +1,95 @@
+<div class="mx-auto p-6 rounded-lg">
+  <p class="fixed arima-font text-[44.24px] text-[#404040]">Recepies</p>
+
+  <nav class="fixed ml-14 mt-16 w-20 h-6">
+    <ol class="inline-flex space-x-2 text-[#969696] font-semibold roboto-font">
+      <li>
+        <a
+          class="p-3"
+          [routerLink]="[mealType, 'All']"
+          routerLinkActive="active-link"
+          (click)="difficultyChange('All')"
+          >All</a
+        >
+      </li>
+      <li>
+        <a
+          class="p-3"
+          [routerLink]="[mealType, 'Easy']"
+          routerLinkActive="active-link"
+          (click)="difficultyChange('Easy')"
+          >Easy</a
+        >
+      </li>
+      <li>
+        <a
+          class="p-3"
+          [routerLink]="[mealType, 'Medium']"
+          routerLinkActive="active-link"
+          (click)="difficultyChange('Medium')"
+          >Medium</a
+        >
+      </li>
+    </ol>
+  </nav>
+
+  <nav class="absolute my-36">
+    <ol class="space-y-14 text-[#969696] font-semibold roboto-font">
+      <li class="[writing-mode:vertical-lr] rotate-180">
+        <a
+          class="p-4"
+          [routerLink]="['Breakfast', difficulty]"
+          routerLinkActive="active-link"
+          (click)="mealTypeChange('Breakfast')"
+          >Breakfast</a
+        >
+        <span
+          *ngIf="isRouteActive('/Breakfast/' + difficulty)"
+          class="circle my-[45%] right-7 top-0"
+        ></span>
+      </li>
+      <li class="[writing-mode:vertical-lr] rotate-180">
+        <a
+          class="p-4"
+          [routerLink]="['Lunch', difficulty]"
+          routerLinkActive="active-link"
+          (click)="mealTypeChange('Lunch')"
+          >Lunch</a
+        >
+        <span
+          *ngIf="isRouteActive('/Lunch/' + difficulty)"
+          class="circle my-[45%] right-7 top-0"
+        ></span>
+      </li>
+      <li class="[writing-mode:vertical-lr] rotate-180">
+        <a
+          class="p-4"
+          [routerLink]="['Dinner', difficulty]"
+          routerLinkActive="active-link"
+          (click)="mealTypeChange('Dinner')"
+          >Dinner</a
+        >
+        <span
+          *ngIf="isRouteActive('/Dinner/' + difficulty)"
+          class="circle my-[45%] right-7 top-0 bottom-0"
+        ></span>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="fixed ml-24 bottom-0 pb-6 max-h-1080:hidden">
+    <p class="arima-font text-[23.98px] text-[#404040]">More recepies</p>
+    <ul>
+      <li class="inline-flex space-x-24">
+        <random-recipe></random-recipe>
+        <random-recipe></random-recipe>
+        <random-recipe></random-recipe>
+        <random-recipe></random-recipe>
+        <random-recipe></random-recipe>
+        <random-recipe></random-recipe>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
